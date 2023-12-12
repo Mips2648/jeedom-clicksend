@@ -1,51 +1,33 @@
 {
-	"id" : "template",
-	"name" : "Template",
-	"specialAttributes" : {
-		"object" : {
-			"toto" : {"name" : {"fr_FR" : "Plop je suis un attribut spécial"},"type" : "input"},
-			"toto2" : {"name" : {"fr_FR" : "Plop je suis un attribut spécial number"},"type" : "number"}
-		},
-		"user" : {
-			"toto" : {"name" : {"fr_FR" : "Plop je suis un attribut spécial"},"type" : "select","values" : [{"value" : "1", "name" : "valeur 1"},{"value" : "plop", "name" : "valeur plop"}]}
-		}
-	},
+	"id" : "clicksend",
+	"name" : "ClickSend",
 	"description" : {
-		"fr_FR": "Template servant de base à la création de plugins pour Jeedom"
+		"fr_FR": "Plugin pour intégrer la plateforme ClickSend"
 	},
 	"licence" : "AGPL",
-	"author" : "Jeedom SAS",
+	"author" : "Mips",
 	"require" : "4.2.0",
-	"category" : "programming",
+	"category" : "communication",
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
-	"changelog" : "https://jeedom.github.io/plugin-template/#language#/changelog",
-	"documentation" : "https://jeedom.github.io/plugin-template/#language#/",
-	"changelog_beta" : "https://jeedom.github.io/plugin-template/#language#/beta/changelog",
-	"documentation_beta" : "https://jeedom.github.io/plugin-template/#language#/beta/",
-	"link" : {
-		"forum":"Lien vers le forum",
-		"video" : "Lien vers une video"
+	"changelog": "https://mips2648.github.io/jeedom-plugins-docs/clicksend/#language#/changelog",
+	"documentation": "https://mips2648.github.io/jeedom-plugins-docs/clicksend/#language#/",
+	"changelog_beta": "https://mips2648.github.io/jeedom-plugins-docs/clicksend/#language#/changelog",
+	"documentation_beta": "https://mips2648.github.io/jeedom-plugins-docs/clicksend/#language#/",
+	"link": {
+		"forum": "https://community.jeedom.com/tags/plugin-clicksend",
+		"video": ""
 	},
 	"language": [
 		"fr_FR",
-		"en_US",
-		"es_ES",
-		"de_DE",
-		"ru_RU",
-		"id_ID",
-		"it_IT",
-		"ja_JP",
-		"pt_PT"
+		"en_US"
 	],
 	"compatibility": [
-		"miniplus",
 		"smart",
 		"rpi",
 		"docker",
 		"diy",
-		"mobile",
 		"v4",
 		"atlas"
 	]

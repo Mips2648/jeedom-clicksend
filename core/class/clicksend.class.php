@@ -18,7 +18,7 @@
 /* * ***************************Includes********************************* */
 require_once __DIR__  . '/../../../../core/php/core.inc.php';
 
-class template extends eqLogic {
+class clicksend extends eqLogic {
   /*     * *************************Attributs****************************** */
 
   /*
@@ -148,7 +148,7 @@ class template extends eqLogic {
   /*     * **********************Getteur Setteur*************************** */
 }
 
-class templateCmd extends cmd {
+class clicksendCmd extends cmd {
   /*     * *************************Attributs****************************** */
 
   /*
