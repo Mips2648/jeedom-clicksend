@@ -1,8 +1,0 @@
-{
-    "require": {
-        "clicksend/clicksend-php": "^5.0"
-    },
-    "replace": {
-        "guzzlehttp/guzzle": "*"
-    }
-}
