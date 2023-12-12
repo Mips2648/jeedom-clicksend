@@ -23,34 +23,24 @@ if (!isConnect()) {
 }
 ?>
 <form class="form-horizontal">
-  <fieldset>
-    <div class="form-group">
-      <label class="col-md-4 control-label">{{Global param 1}}
-        <sup><i class="fas fa-question-circle tooltips" title="{{Renseignez le paramètre 1 du plugin}}"></i></sup>
-      </label>
-      <div class="col-md-4">
-        <input class="configKey form-control" data-l1key="param1"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-4 control-label">{{Global param 2}}
-        <sup><i class="fas fa-question-circle tooltips" title="{{Renseignez le paramètre 2 du plugin}}"></i></sup>
-      </label>
-      <div class="col-md-4">
-        <input class="configKey form-control" data-l1key="param2"/>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-4 control-label">{{Global param 3}}
-        <sup><i class="fas fa-question-circle tooltips" title="{{Sélectionnez du paramètre 3 du plugin}}"></i></sup>
-      </label>
-      <div class="col-md-4">
-        <select class="configKey form-control" data-l1key="param3">
-          <option value=""></option>
-          <option value="value1">value1</option>
-          <option value="value2">value2</option>
-        </select>
-      </div>
-    </div>
-  </fieldset>
+    <fieldset>
+        <legend><i class="fas fa-user-cog"></i> {{Authentification}}</legend>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">{{Nom d'utilisateur}}</label>
+            <div class="col-sm-4">
+                <input type="text" class="configKey form-control" data-l1key="username" placeholder="{{Saisir le nom d'utilisateur}}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">{{Clé API}}</label>
+            <div class="col-sm-4">
+                <div class="input-group">
+                    <input type="text" class="configKey form-control roundedLeft inputPassword" data-l1key="apikey" placeholder="{{Saisir la clé API}}" />
+                    <span class="input-group-btn">
+                        <a class="btn btn-default form-control bt_showPass roundedRight"><i class="fas fa-eye"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </fieldset>
 </form>
