@@ -18,29 +18,6 @@
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 include_file('core', 'authentification', 'php');
 if (!isConnect()) {
-  include_file('desktop', '404', 'php');
-  die();
+    include_file('desktop', '404', 'php');
+    die();
 }
-?>
-<form class="form-horizontal">
-    <fieldset>
-        <legend><i class="fas fa-user-cog"></i> {{Authentification}}</legend>
-        <div class="form-group">
-            <label class="col-sm-4 control-label">{{Nom d'utilisateur}}</label>
-            <div class="col-sm-4">
-                <input type="text" class="configKey form-control" data-l1key="username" placeholder="{{Saisir le nom d'utilisateur}}" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-4 control-label">{{Clé API}}</label>
-            <div class="col-sm-4">
-                <div class="input-group">
-                    <input type="text" class="configKey form-control roundedLeft inputPassword" data-l1key="apikey" placeholder="{{Saisir la clé API}}" />
-                    <span class="input-group-btn">
-                        <a class="btn btn-default form-control bt_showPass roundedRight"><i class="fas fa-eye"></i></a>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </fieldset>
-</form>

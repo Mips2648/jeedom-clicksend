@@ -34,6 +34,13 @@ class clicksend extends eqLogic {
    }
    */
 
+  public function cronDaily() {
+    /** @var clicksend */
+    foreach (eqLogic::byType(__CLASS__, true) as $eqLogic) {
+      $eqLogic->getAccount();
+    }
+  }
+
   private function getClient() {
     $host = 'https://rest.clicksend.com/v3';
     $client = new HttpClient($host, log::getLogger(__CLASS__));
@@ -44,12 +51,20 @@ class clicksend extends eqLogic {
     return $client;
   }
 
-  public function sendSms($to, $message) {
+  public function getAccount() {
+    $result = $this->getClient()->doGet('account');
+    if ($result->isSuccess()) {
+      $body = json_decode($result->getBody(), true);
+      $data = $body['data'];
+      $this->checkAndUpdateCmd('balance', round($data['balance'], 2));
+    }
+  }
 
+  public function sendSms($to, $message) {
     $message = [
       "body" => $message,
       "to" =>  $to,
-      "from" =>  $this->getName()
+      "from" => $this->getName()
     ];
 
     $payload = [
@@ -61,12 +76,43 @@ class clicksend extends eqLogic {
     $this->getClient()->doPost('sms/send', $payload);
   }
 
+  public function sendVoice($to, $message) {
+    $message = [
+      "body" => $message,
+      "to" =>  $to,
+      "country" => 'BE',
+      "voice" => "female",
+      "source" => $this->getName(),
+      "custom_string" => $message,
+      "lang" => "fr-fr",
+      "machine_detection" => 1,
+      "require_input" => 0
+    ];
+
+    $payload = [
+      "messages" => [
+        $message
+      ]
+    ];
+
+    $this->getClient()->doPost('voice/send', $payload);
+  }
+
   // Fonction exécutée automatiquement avant la création de l'équipement
   public function preInsert() {
   }
 
   // Fonction exécutée automatiquement après la création de l'équipement
   public function postInsert() {
+    $cmd = new clicksendCmd();
+    $cmd->setLogicalId('balance');
+    $cmd->setIsVisible(1);
+    $cmd->setName(__('Solde', __FILE__));
+    $cmd->setType('info');
+    $cmd->setSubType('numeric');
+    $cmd->setUnite('€');
+    $cmd->setEqLogic_id($this->getId());
+    $cmd->save();
   }
 
   // Fonction exécutée automatiquement avant la mise à jour de l'équipement
@@ -83,6 +129,7 @@ class clicksend extends eqLogic {
 
   // Fonction exécutée automatiquement après la sauvegarde (création ou mise à jour) de l'équipement
   public function postSave() {
+    $this->getAccount();
   }
 
   // Fonction exécutée automatiquement avant la suppression de l'équipement
@@ -93,25 +140,32 @@ class clicksend extends eqLogic {
   public function postRemove() {
   }
 
-  /*
-  * Permet de crypter/décrypter automatiquement des champs de configuration des équipements
-  * Exemple avec le champ "Mot de passe" (password)
   public function decrypt() {
-    $this->setConfiguration('password', utils::decrypt($this->getConfiguration('password')));
+    $this->setConfiguration('apikey', utils::decrypt($this->getConfiguration('apikey')));
   }
   public function encrypt() {
-    $this->setConfiguration('password', utils::encrypt($this->getConfiguration('password')));
+    $this->setConfiguration('apikey', utils::encrypt($this->getConfiguration('apikey')));
   }
-  */
 }
 
 class clicksendCmd extends cmd {
+
+  public function dontRemoveCmd() {
+    // return $this->getType() == 'info';
+  }
 
   // Exécution d'une commande
   public function execute($_options = array()) {
     /** @var clicksend */
     $eqLogic = $this->getEqLogic();
-    $eqLogic->sendSms($this->getConfiguration('phonenumber'), $_options['title'] . ' ' . $_options['message']);
+    switch ($this->getConfiguration('type')) {
+      case 'sms':
+        $eqLogic->sendSms($this->getConfiguration('phonenumber'), $_options['title'] . ' ' . $_options['message']);
+        break;
+      case 'call':
+        $eqLogic->sendVoice($this->getConfiguration('phonenumber'), $_options['title'] . ' ' . $_options['message']);
+        break;
+    }
   }
 
   /*     * **********************Getteur Setteur*************************** */
