@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89b17402a03f8f1109ef612aadc035db",
+    "content-hash": "de73e96f6fdad4ece0cb33bf90fc5a48",
     "packages": [
         {
             "name": "mips/httpclient",
@@ -44,6 +44,42 @@
                 "source": "https://github.com/Mips2648/httpclient/tree/v1.0"
             },
             "time": "2023-08-30T08:19:09+00:00"
+        },
+        {
+            "name": "mips/jeedom-tools",
+            "version": "v0.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Mips2648/jeedom-tools.git",
+                "reference": "e4b72769e625f82644a8f9626f9dabc1f2dc21f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Mips2648/jeedom-tools/zipball/e4b72769e625f82644a8f9626f9dabc1f2dc21f9",
+                "reference": "e4b72769e625f82644a8f9626f9dabc1f2dc21f9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "MipsEqLogicTrait": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mips"
+                }
+            ],
+            "description": "Jeedom tools for plugin dev",
+            "support": {
+                "issues": "https://github.com/Mips2648/jeedom-tools/issues",
+                "source": "https://github.com/Mips2648/jeedom-tools/tree/v0.18"
+            },
+            "time": "2022-05-19T16:01:15+00:00"
         },
         {
             "name": "psr/log",

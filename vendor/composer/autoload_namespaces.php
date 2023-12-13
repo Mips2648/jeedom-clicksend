@@ -6,4 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'MipsEqLogicTrait' => array($vendorDir . '/mips/jeedom-tools/src'),
 );

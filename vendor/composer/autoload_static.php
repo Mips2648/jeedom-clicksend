@@ -28,6 +28,16 @@ class ComposerStaticInitd6cf5b108b8ba7e30aefeb6cb989b541
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'M' => 
+        array (
+            'MipsEqLogicTrait' => 
+            array (
+                0 => __DIR__ . '/..' . '/mips/jeedom-tools/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -37,6 +47,7 @@ class ComposerStaticInitd6cf5b108b8ba7e30aefeb6cb989b541
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitd6cf5b108b8ba7e30aefeb6cb989b541::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd6cf5b108b8ba7e30aefeb6cb989b541::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd6cf5b108b8ba7e30aefeb6cb989b541::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitd6cf5b108b8ba7e30aefeb6cb989b541::$classMap;
 
         }, null, ClassLoader::class);
