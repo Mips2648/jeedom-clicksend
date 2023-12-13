@@ -17,6 +17,9 @@
 
 /* * ***************************Includes********************************* */
 require_once __DIR__  . '/../../../../core/php/core.inc.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+use Mips\Http\HttpClient;
 
 class clicksend extends eqLogic {
 
@@ -31,7 +34,32 @@ class clicksend extends eqLogic {
    }
    */
 
-  /*     * *********************Méthodes d'instance************************* */
+  private function getClient() {
+    $host = 'https://rest.clicksend.com/v3';
+    $client = new HttpClient($host, log::getLogger(__CLASS__));
+    $username = config::byKey('username', __CLASS__);
+    $apikey = config::byKey('apikey', __CLASS__);
+    $auth = base64_encode("{$username}:{$apikey}");
+    $client->getHttpHeaders()->setHeader('Authorization', "Basic {$auth}");
+    return $client;
+  }
+
+  public function sendSms($to, $message) {
+
+    $message = [
+      "body" => $message,
+      "to" =>  $to,
+      "from" =>  $this->getName()
+    ];
+
+    $payload = [
+      "messages" => [
+        $message
+      ]
+    ];
+
+    $this->getClient()->doPost('sms/send', $payload);
+  }
 
   // Fonction exécutée automatiquement avant la création de l'équipement
   public function preInsert() {
@@ -75,20 +103,15 @@ class clicksend extends eqLogic {
     $this->setConfiguration('password', utils::encrypt($this->getConfiguration('password')));
   }
   */
-
 }
 
 class clicksendCmd extends cmd {
 
-  /*
-  * Permet d'empêcher la suppression des commandes même si elles ne sont pas dans la nouvelle configuration de l'équipement envoyé en JS
-  public function dontRemoveCmd() {
-    return true;
-  }
-  */
-
   // Exécution d'une commande
   public function execute($_options = array()) {
+    /** @var clicksend */
+    $eqLogic = $this->getEqLogic();
+    $eqLogic->sendSms($this->getConfiguration('phonenumber'), $_options['title'] . ' ' . $_options['message']);
   }
 
   /*     * **********************Getteur Setteur*************************** */
