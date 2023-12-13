@@ -22,6 +22,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 use Mips\Http\HttpClient;
 
 class clicksend extends eqLogic {
+  use MipsEqLogicTrait;
 
   public static $_encryptConfigKey = array('apikey');
 
@@ -104,15 +105,7 @@ class clicksend extends eqLogic {
 
   // Fonction exécutée automatiquement après la création de l'équipement
   public function postInsert() {
-    $cmd = new clicksendCmd();
-    $cmd->setLogicalId('balance');
-    $cmd->setIsVisible(1);
-    $cmd->setName(__('Solde', __FILE__));
-    $cmd->setType('info');
-    $cmd->setSubType('numeric');
-    $cmd->setUnite('€');
-    $cmd->setEqLogic_id($this->getId());
-    $cmd->save();
+    $this->createCommandsFromConfigFile(__DIR__ . '/../config/commands.json', 'common');
   }
 
   // Fonction exécutée automatiquement avant la mise à jour de l'équipement
@@ -129,7 +122,6 @@ class clicksend extends eqLogic {
 
   // Fonction exécutée automatiquement après la sauvegarde (création ou mise à jour) de l'équipement
   public function postSave() {
-    $this->getAccount();
   }
 
   // Fonction exécutée automatiquement avant la suppression de l'équipement
@@ -151,13 +143,19 @@ class clicksend extends eqLogic {
 class clicksendCmd extends cmd {
 
   public function dontRemoveCmd() {
-    // return $this->getType() == 'info';
+    return in_array($this->getLogicalId(), ['refresh', 'balance']);
   }
 
   // Exécution d'une commande
   public function execute($_options = array()) {
     /** @var clicksend */
     $eqLogic = $this->getEqLogic();
+
+    if ($this->getLogicalId() == 'refresh') {
+      $eqLogic->getAccount();
+      return;
+    }
+
     switch ($this->getConfiguration('type')) {
       case 'sms':
         $eqLogic->sendSms($this->getConfiguration('phonenumber'), $_options['title'] . ' ' . $_options['message']);
