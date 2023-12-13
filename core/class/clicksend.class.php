@@ -160,7 +160,7 @@ class clicksendCmd extends cmd {
       case 'sms':
         $eqLogic->sendSms($this->getConfiguration('phonenumber'), $_options['title'] . ' ' . $_options['message']);
         break;
-      case 'call':
+      case 'voice':
         $eqLogic->sendVoice($this->getConfiguration('phonenumber'), $_options['title'] . ' ' . $_options['message']);
         break;
     }

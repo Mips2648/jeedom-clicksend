@@ -53,11 +53,11 @@ function addCmdToTable(_cmd) {
   tr += '</td>';
 
 
-  if (_cmd.type == 'action') {
+  if (_cmd.type == 'action' && _cmd.subType == 'message') {
     tr += '<td>';
     tr += '<select class="form-control cmdAttr input-sm" data-l1key="configuration" data-l2key="type">';
     tr += '<option value="sms">{{SMS}}</option>';
-    tr += '<option value="call">{{Appels}}</option>';
+    tr += '<option value="voice">{{Appel (TTS)}}</option>';
     tr += '</select>';
     tr += '</td>';
     tr += '<td><input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="phonenumber"></td>';
