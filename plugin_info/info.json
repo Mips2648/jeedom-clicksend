@@ -1,22 +1,22 @@
 {
-	"id" : "clicksend",
-	"name" : "ClickSend",
-	"description" : {
+	"id": "clicksend",
+	"name": "ClickSend",
+	"description": {
 		"fr_FR": "Plugin pour intégrer la plateforme ClickSend"
 	},
-	"licence" : "AGPL",
-	"author" : "Mips",
-	"require" : "4.2.0",
-	"category" : "communication",
-	"hasDependency" : false,
-	"hasOwnDeamon" : false,
-	"maxDependancyInstallTime" : 0,
+	"licence": "AGPL",
+	"author": "Mips",
+	"require": "4.2.0",
+	"category": "communication",
+	"hasDependency": false,
+	"hasOwnDeamon": false,
+	"maxDependancyInstallTime": 0,
 	"changelog": "https://mips2648.github.io/jeedom-plugins-docs/clicksend/#language#/changelog",
 	"documentation": "https://mips2648.github.io/jeedom-plugins-docs/clicksend/#language#/",
 	"changelog_beta": "https://mips2648.github.io/jeedom-plugins-docs/clicksend/#language#/changelog",
 	"documentation_beta": "https://mips2648.github.io/jeedom-plugins-docs/clicksend/#language#/",
 	"link": {
-		"forum": "https://community.jeedom.com/tags/plugin-clicksend",
+		"forum": "https://community.jeedom.com/tag/plugin-clicksend",
 		"video": ""
 	},
 	"language": [
@@ -25,10 +25,11 @@
 	],
 	"compatibility": [
 		"smart",
+		"atlas",
+		"luna",
 		"rpi",
 		"docker",
 		"diy",
-		"v4",
-		"atlas"
+		"v4"
 	]
 }

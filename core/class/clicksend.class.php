@@ -99,37 +99,9 @@ class clicksend extends eqLogic {
     $this->getClient()->doPost('voice/send', $payload);
   }
 
-  // Fonction exécutée automatiquement avant la création de l'équipement
-  public function preInsert() {
-  }
-
   // Fonction exécutée automatiquement après la création de l'équipement
   public function postInsert() {
     $this->createCommandsFromConfigFile(__DIR__ . '/../config/commands.json', 'common');
-  }
-
-  // Fonction exécutée automatiquement avant la mise à jour de l'équipement
-  public function preUpdate() {
-  }
-
-  // Fonction exécutée automatiquement après la mise à jour de l'équipement
-  public function postUpdate() {
-  }
-
-  // Fonction exécutée automatiquement avant la sauvegarde (création ou mise à jour) de l'équipement
-  public function preSave() {
-  }
-
-  // Fonction exécutée automatiquement après la sauvegarde (création ou mise à jour) de l'équipement
-  public function postSave() {
-  }
-
-  // Fonction exécutée automatiquement avant la suppression de l'équipement
-  public function preRemove() {
-  }
-
-  // Fonction exécutée automatiquement après la suppression de l'équipement
-  public function postRemove() {
   }
 
   public function decrypt() {
