@@ -94,3 +94,7 @@ function addCmdToTable(_cmd) {
   $tr.setValues(_cmd, '.cmdAttr');
   jeedom.cmd.changeType($tr, init(_cmd.subType))
 }
+
+$('.pluginAction[data-action=openLocation]').on('click', function () {
+  window.open($(this).attr("data-location"), "_blank", null);
+});
