@@ -1,0 +1,21 @@
+{
+    "common": [
+        {
+            "logicalId": "balance",
+            "name": "Solde",
+            "type": "info",
+            "subtype": "numeric",
+            "isVisible": 1,
+            "isHistorized": 0,
+            "unit": "€"
+        },
+        {
+            "logicalId": "refresh",
+            "name": "Rafraichir",
+            "type": "action",
+            "subtype": "other",
+            "isVisible": 1,
+            "isHistorized": 0
+        }
+    ]
+}
