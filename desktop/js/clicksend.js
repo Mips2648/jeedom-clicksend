@@ -32,10 +32,10 @@ function addCmdToTable(_cmd) {
   if (!isset(_cmd.configuration)) {
     _cmd.configuration = {}
   }
-  if (!isset(_cmd.type)) {
+
+  if (!isset(_cmd.logicalId)) {
+    _cmd.logicalId = 'sendCustom'
     _cmd.type = 'action'
-  }
-  if (!isset(_cmd.subType)) {
     _cmd.subType = 'message'
   }
 
@@ -52,8 +52,7 @@ function addCmdToTable(_cmd) {
   tr += '</div>';
   tr += '</td>';
 
-
-  if (_cmd.type == 'action' && _cmd.subType == 'message') {
+  if (_cmd.logicalId == 'sendCustom') {
     tr += '<td>';
     tr += '<select class="form-control cmdAttr input-sm" data-l1key="configuration" data-l2key="type">';
     tr += '<option value="sms">{{SMS}}</option>';
@@ -61,6 +60,10 @@ function addCmdToTable(_cmd) {
     tr += '</select>';
     tr += '</td>';
     tr += '<td><input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="phonenumber"></td>';
+  } else if (_cmd.logicalId == 'sendSms') {
+    tr += '<td><input class="form-control input-sm" readonly value="SMS"></td><td></td>';
+  } else if (_cmd.logicalId == 'sendVoice') {
+    tr += '<td><input class="form-control input-sm" readonly value="Appel (TTS)"></td><td></td>';
   } else {
     tr += '<td></td><td></td>';
   }

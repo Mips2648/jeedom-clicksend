@@ -14,8 +14,27 @@
             "name": "Rafraichir",
             "type": "action",
             "subtype": "other",
+            "isVisible": 1
+        },
+        {
+            "logicalId": "sendSms",
+            "name": "Envoyer un SMS",
+            "type": "action",
+            "subtype": "message",
             "isVisible": 1,
-            "isHistorized": 0
+            "display": {
+                "title_placeholder": "Numéro"
+            }
+        },
+        {
+            "logicalId": "sendVoice",
+            "name": "Envoyer un message vocal",
+            "type": "action",
+            "subtype": "message",
+            "isVisible": 1,
+            "display": {
+                "title_placeholder": "Numéro"
+            }
         }
     ]
 }
