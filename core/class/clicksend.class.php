@@ -115,7 +115,17 @@ class clicksend extends eqLogic {
 class clicksendCmd extends cmd {
 
   public function dontRemoveCmd() {
-    return in_array($this->getLogicalId(), ['refresh', 'balance']);
+    return in_array($this->getLogicalId(), ['refresh', 'balance', 'sendSms', 'sendVoice']);
+  }
+
+  public function preInsert() {
+    log::add('clicksend', 'debug', "insert cmd {$this->getLogicalId()}");
+    if ($this->getLogicalId() == '') {
+      $this->setLogicalId('sendCustom');
+      $this->setType('action');
+      $this->setSubType('message');
+      $this->setDisplay('title_disable', 1);
+    }
   }
 
   // Exécution d'une commande
@@ -123,18 +133,25 @@ class clicksendCmd extends cmd {
     /** @var clicksend */
     $eqLogic = $this->getEqLogic();
 
-    if ($this->getLogicalId() == 'refresh') {
-      $eqLogic->getAccount();
-      return;
-    }
-
-    switch ($this->getConfiguration('type')) {
-      case 'sms':
-        $eqLogic->sendSms($this->getConfiguration('phonenumber'), $_options['title'] . ' ' . $_options['message']);
-        break;
-      case 'voice':
-        $eqLogic->sendVoice($this->getConfiguration('phonenumber'), $_options['title'] . ' ' . $_options['message']);
-        break;
+    switch ($this->getLogicalId()) {
+      case 'refresh':
+        $eqLogic->getAccount();
+        return;
+      case 'sendSms':
+        $eqLogic->sendSms($_options['title'], $_options['message']);
+        return;
+      case 'sendVoice':
+        $eqLogic->sendVoice($_options['title'], $_options['message']);
+        return;
+      default:
+        switch ($this->getConfiguration('type')) {
+          case 'sms':
+            $eqLogic->sendSms($this->getConfiguration('phonenumber'), $_options['message']);
+            break;
+          case 'voice':
+            $eqLogic->sendVoice($this->getConfiguration('phonenumber'), $_options['message']);
+            break;
+        }
     }
   }
 

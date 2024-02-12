@@ -13,7 +13,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			<div class="col-sm-10">
 				<legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
 				<div class="eqLogicThumbnailContainer">
-					<div class="cursor eqLogicAction logoPrimary" data-action="add">
+					<div class="cursor eqLogicAction logoSecondary" data-action="add">
 						<i class="fas fa-plus-circle"></i>
 						<br>
 						<span>{{Ajouter}}</span>
@@ -23,30 +23,20 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<br>
 						<span>{{Configuration}}</span>
 					</div>
-				</div>
-			</div>
-			<?php
-			// à conserver
-			// sera afficher uniquement si l'utilisateur est en version 4.4 ou supérieur
-			$jeedomVersion  = jeedom::version() ?? '0';
-			$displayInfoValue = version_compare($jeedomVersion, '4.4.0', '>=');
-			if ($displayInfoValue) {
-			?>
-				<div class="col-sm-2">
-					<legend><i class=" fas fa-comments"></i> {{Community}}</legend>
-					<div class="eqLogicThumbnailContainer">
-						<div class="cursor eqLogicAction logoSecondary" data-action="createCommunityPost">
-							<i class="fas fa-ambulance"></i>
-							<br>
-							<span style="color:var(--txt-color)">{{Créer un post Community}}</span>
-						</div>
+					<div class="cursor pluginAction logoSecondary" data-action="openLocation" data-location="<?= $plugin->getDocumentation() ?>">
+						<i class="fas fa-book"></i>
+						<br>
+						<span>{{Documentation}}</span>
+					</div>
+					<div class="cursor pluginAction logoSecondary" data-action="openLocation" data-location="https://community.jeedom.com/tag/plugin-<?= $plugin->getId() ?>">
+						<i class="fas fa-comments"></i>
+						<br>
+						<span>Community</span>
 					</div>
 				</div>
-			<?php
-			}
-			?>
+			</div>
 		</div>
-		<legend><i class="fas fa-table"></i> {{Mes ClickSends}}</legend>
+		<legend><i class="fas fa-comment-alt"></i> {{Mes ClickSends}}</legend>
 		<?php
 		if (count($eqLogics) == 0) {
 			echo '<br><div class="text-center" style="font-size:1.2em;font-weight:bold;">{{Aucun équipement trouvé, cliquez sur "Ajouter" pour commencer}}</div>';
@@ -121,7 +111,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label">{{Catégorie}}</label>
-								<div class="col-sm-6">
+								<div class="col-sm-8">
 									<?php
 									foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
 										echo '<label class="checkbox-inline">';
