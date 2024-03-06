@@ -45,8 +45,11 @@ class clicksend extends eqLogic {
   private function getClient() {
     $host = 'https://rest.clicksend.com/v3';
     $client = new HttpClient($host, log::getLogger(__CLASS__));
-    $username = config::byKey('username', __CLASS__);
-    $apikey = config::byKey('apikey', __CLASS__);
+    $username = trim($this->getConfiguration('username'));
+    $apikey = trim($this->getConfiguration('apikey'));
+    if (empty($username) || empty($apikey)) {
+      throw new Exception("username or apikey missing");
+    }
     $auth = base64_encode("{$username}:{$apikey}");
     $client->getHttpHeaders()->setHeader('Authorization', "Basic {$auth}");
     return $client;
@@ -58,6 +61,8 @@ class clicksend extends eqLogic {
       $body = json_decode($result->getBody(), true);
       $data = $body['data'];
       $this->checkAndUpdateCmd('balance', round($data['balance'], 2));
+    } else {
+      log::add(__CLASS__, 'warning', "{$result->getError()} - {$result->getBody()}");
     }
   }
 
