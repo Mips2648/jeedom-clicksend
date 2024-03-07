@@ -2,8 +2,9 @@
 	"id": "clicksend",
 	"name": "ClickSend",
 	"description": {
-		"fr_FR": "Plugin pour intégrer la plateforme ClickSend"
+		"fr_FR": "Plugin pour intégrer la plateforme ClickSend qui permet l'envoi de message texte (SMS) ou vocaux (TTS)"
 	},
+	"utilization": "Vous devez créer un compte ClickSend, le créditer et généré votre clé API",
 	"licence": "AGPL",
 	"author": "Mips",
 	"require": "4.2.0",
