@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'a453a6d31d0546eef90de3fad59ce8075cab1e7a',
+    'reference' => '72ac9ad05c9b03ef01d719dc9f1e2f43e46166ba',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'a453a6d31d0546eef90de3fad59ce8075cab1e7a',
+      'reference' => '72ac9ad05c9b03ef01d719dc9f1e2f43e46166ba',
     ),
     'mips/httpclient' => 
     array (
@@ -31,12 +31,12 @@
     ),
     'mips/jeedom-tools' => 
     array (
-      'pretty_version' => 'v0.18',
-      'version' => '0.18.0.0',
+      'pretty_version' => 'v0.21',
+      'version' => '0.21.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e4b72769e625f82644a8f9626f9dabc1f2dc21f9',
+      'reference' => 'ba7b48ed850f987922e439f120012efedbf5dffa',
     ),
     'psr/log' => 
     array (
