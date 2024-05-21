@@ -12,3 +12,10 @@ updates:
     schedule:
       interval: "monthly"
     target-branch: "beta"
+
+  - package-ecosystem: "composer"
+    # Files stored in repository root
+    directory: "/"
+    target-branch: "beta"
+    schedule:
+      interval: "weekly"
