@@ -35,7 +35,7 @@ class clicksend extends eqLogic {
    }
    */
 
-  public function cronDaily() {
+  public static function cronDaily() {
     /** @var clicksend */
     foreach (eqLogic::byType(__CLASS__, true) as $eqLogic) {
       $eqLogic->getAccount();
