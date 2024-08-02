@@ -12,7 +12,6 @@ def get_textes_from_source(dir):
     for root, dirs, files in os.walk(dir):
         print(root)
         for dirname in dirs:
-            if dirname not in ['core', ]
             print(dirname)
             if dirname[0] == ".":
                 dirs.remove(dirname)
