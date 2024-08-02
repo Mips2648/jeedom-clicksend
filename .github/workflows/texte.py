@@ -63,26 +63,26 @@ class Texte(object):
 
     def get_traduction (self, langue):
         traduction = self.__texte
-        # if langue == "fr_FR":
-        #     # On ne traduit pas le Français en Français
-        #     return (self.__texte, traduction)
+        if langue == "fr_FR":
+            # On ne traduit pas le Français en Français
+            return (self.__texte, traduction)
 
-        # if not langue in self.__traduction:
-        #     # Il n'y a pas de traduction disponible pour cette langue
-        #     return (self.__texte, '__AT__' + traduction)
+        if not langue in self.__traduction:
+            # Il n'y a pas de traduction disponible pour cette langue
+            return (self.__texte, traduction)
 
-        # OK = False
-        # for source in self.__priorite:
-        #     if not OK and source in self.__traduction[langue]:
-        #         if source == "precedent":
-        #             # On conserve la version pécédente uniquement si elle
-        #             # a été traduite
-        #             if self.__traduction[langue][source] != self.__texte:
-        #                 traduction = self.__traduction[langue][source]
-        #                 OK = True
-        #         elif source == "core":
-        #             traduction = self.select_traduction(source, langue)
-        #             OK = True
+        OK = False
+        for source in self.__priorite:
+            if not OK and source in self.__traduction[langue]:
+                if source == "precedent":
+                    # On conserve la version pécédente uniquement si elle
+                    # a été traduite
+                    if self.__traduction[langue][source] != self.__texte:
+                        traduction = self.__traduction[langue][source]
+                        OK = True
+                # elif source == "core":
+                #     traduction = self.select_traduction(source, langue)
+                #     OK = True
         return (self.__texte, traduction)
 
 
