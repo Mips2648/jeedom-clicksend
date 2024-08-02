@@ -73,7 +73,7 @@ def write_traduction( textes ="" ):
         result['traduitjdm']['timestamp']=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         with open(fileName, "w") as f:
-            f.write(json.dumps(result, ensure_ascii=False, sort_keys = True, indent= indent).replace("/","\/"))
+            f.write(json.dumps(result, ensure_ascii=False, sort_keys = True, indent= 4).replace("/","\/"))
 
 get_all()
 write_traduction()
