@@ -1,4 +1,4 @@
-name: update tgw version
+name: translate
 
 # Controls when the workflow will run
 on:
@@ -20,4 +20,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run script
+        env:
+          GITHUB_WORKSPACE: $GITHUB_WORKSPACE
         run: python .github/workflows/translate.py
