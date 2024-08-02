@@ -5,7 +5,9 @@ import os
 def get_textes_from_source():
     print("Recherche de textes dans le code...")
     for root, dirs, files in os.walk(os.environ.get("GITHUB_WORKSPACE")):
+        print(root)
         for dirname in dirs:
+            print(dirname)
             if dirname[0] == ".":
                 dirs.remove(dirname)
             if (root.endswith("/core") and dirname == 'i18n'):
