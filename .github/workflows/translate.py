@@ -2,6 +2,7 @@ import datetime
 import json
 import os
 from fichierSource import FichierSource
+from texte import Texte
 
 # github_workspace = os.environ.get("GITHUB_WORKSPACE")
 
@@ -36,6 +37,61 @@ def get_textes_from_source(dir):
                 fichier = FichierSource(f"{absolute_path}")
                 fichier.search_textes()
     return
+
+def plugin_absolute_path():
+    return os.environ.get("GITHUB_WORKSPACE")
+
+def get_textes_from_precedent():
+    print("Lecture des traductions existantes...")
+    ok = True
+    langues = ['en_US']
+    for langue in langues:
+        # Verbose ("    Langue: " + langue + "...")
+        content = None
+        file_path = plugin_absolute_path() + "/core/i18n/" + langue + ".json"
+        if (not os.path.exists (file_path)):
+            return
+        try:
+            with open(plugin_absolute_path() + "/core/i18n/" + langue + ".json") as f:
+                content = f.read()
+        except OSError as e:
+            print(e.filename + ": " + e.strerror)
+            ok = False
+            continue
+
+        if content != None:
+            try:
+                data = json.loads(content)
+            except json.decoder.JSONDecodeError as e:
+                print(f"Erreur lors de la lecture du fichier {file_path}:")
+                print(f"   Ligne {e.lineno}")
+                print(f"   position {e.colno}")
+                print(f"   {e.msg}")
+                print()
+                ok = False
+                continue
+
+            pre_1_1 = False
+            if not 'traduitjdm' in data.keys():
+                pre_1_1 = True
+            for relativ_path in data:
+                if (relativ_path == 'traduitjdm'):
+                    continue
+                else:
+                    relativ_path = relativ_path.replace("\/","/")
+                    fs = FichierSource.by_path(relativ_path)
+                    for texte in data[relativ_path]:
+                        if pre_1_1 and data[relativ_path][texte] == texte:
+                            data[relativ_path][texte] = '__AT__' + texte
+                        if not data[relativ_path][texte].startswith('__AT__'):
+                            fs.add_texte_precedent(texte, data[relativ_path][texte], langue)
+                        txt = Texte.by_texte(texte)
+                        # if purge and not txt in fs.get_textes():
+                        #     continue
+                        if not data[relativ_path][texte].startswith('__AT__'):
+                            txt.add_traduction(langue, data[relativ_path][texte], "precedent")
+                        fs.add_texte(txt)
+    return ok
 
 def write_traduction( textes ="" ):
     print("Ecriture du/des fichier(s) de traduction(s)...")
@@ -77,4 +133,5 @@ def write_traduction( textes ="" ):
         #     f.write(json.dumps(result, ensure_ascii=False, sort_keys = True, indent= 4).replace("/","\/"))
 
 get_all()
+get_textes_from_precedent()
 write_traduction()
