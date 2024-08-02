@@ -5,7 +5,7 @@ import os
 def get_all():
     base_dir = os.environ.get("GITHUB_WORKSPACE")
     for dir in ['core', 'desktop', 'plugin_info']:
-        get_textes_from_source(f"{base_dir}/dir")
+        get_textes_from_source(f"{base_dir}/{dir}")
 
 def get_textes_from_source(dir):
     print("Recherche de textes dans le code...")
