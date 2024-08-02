@@ -67,7 +67,7 @@ def write_traduction( textes ="" ):
         for fs in FichierSource.fichiers_source():
             trad = fs.get_traduction(langue)
             if trad != None:
-                result[fs.get_relativ_path()] = trad
+                result["plugins/clicksend/" + fs.get_relativ_path()] = trad
         result['traduitjdm']={}
         result['traduitjdm']['version']='1'
         result['traduitjdm']['timestamp']=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")

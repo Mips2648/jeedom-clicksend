@@ -36,7 +36,7 @@ class FichierSource(object):
 
     @staticmethod
     def relativ_path (path):
-        return path.replace(os.environ.get("GITHUB_WORKSPACE"), "plugins/clicksend")
+        return path.replace(os.environ.get("GITHUB_WORKSPACE")+"/", "")
 
     @staticmethod
     def absolute_path (path):
