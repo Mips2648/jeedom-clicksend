@@ -1,0 +1,23 @@
+name: update tgw version
+
+# Controls when the workflow will run
+on:
+  push:
+    branches:
+      - beta
+  pull_request:
+    branches:
+      - beta
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+
+      - name: Run script
+        run: python .github/workflows/translate.py
