@@ -43,7 +43,7 @@ def write_traduction( textes ="" ):
     for langue in langues:
         print(f"    Langue: {langue}...")
 
-        fileName = os.environ.get("GITHUB_WORKSPACE")() + "/core/i18n"
+        fileName = os.environ.get("GITHUB_WORKSPACE") + "/core/i18n"
         if (not os.path.exists (fileName)):
                 os.mkdir(fileName)
         fileName = fileName + "/" + langue + ".json"

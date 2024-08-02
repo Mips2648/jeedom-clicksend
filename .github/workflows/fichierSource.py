@@ -1,7 +1,7 @@
 
 import inspect
+import os
 import re
-import hashlib
 from texte import Texte
 import sys
 
@@ -35,18 +35,14 @@ class FichierSource(object):
         return fs
 
     @staticmethod
-    def set_jeedom_dir (dir):
-        FichierSource.__jeedomDir = dir
-
-    @staticmethod
     def relativ_path (path):
-        return path.replace(FichierSource.__jeedomDir + "/","")
+        return path.replace(os.environ.get("GITHUB_WORKSPACE") + "/","")
 
     @staticmethod
     def absolute_path (path):
-        if path.startswith(FichierSource.__jeedomDir):
+        if path.startswith(os.environ.get("GITHUB_WORKSPACE")):
             return path
-        return FichierSource.__jeedomDir + "/" + path
+        return os.environ.get("GITHUB_WORKSPACE") + "/" + path
 
     # --- Les méthodes d'intance ---
 
