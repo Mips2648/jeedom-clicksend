@@ -2,11 +2,17 @@ import os
 
 # github_workspace = os.environ.get("GITHUB_WORKSPACE")
 
-def get_textes_from_source():
+def get_all():
+    base_dir = os.environ.get("GITHUB_WORKSPACE")
+    for dir in ['core', 'desktop', 'plugin_info']:
+        get_textes_from_source(f"{base_dir}/dir")
+
+def get_textes_from_source(dir):
     print("Recherche de textes dans le code...")
-    for root, dirs, files in os.walk(os.environ.get("GITHUB_WORKSPACE")):
+    for root, dirs, files in os.walk(dir):
         print(root)
         for dirname in dirs:
+            if dirname not in ['core', ]
             print(dirname)
             if dirname[0] == ".":
                 dirs.remove(dirname)
@@ -30,4 +36,4 @@ def get_textes_from_source():
                 # fichier.search_textes()
     return
 
-get_textes_from_source()
+get_all()
