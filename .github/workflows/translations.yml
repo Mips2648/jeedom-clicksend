@@ -2,8 +2,13 @@ name: translate
 
 # Controls when the workflow will run
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - beta
+  pull_request:
+    branches:
+      - beta
 
 jobs:
-  translate:
+  auto-translate:
     uses: Mips2648/jeedom-translations/.github/workflows/translate_plugin.yml@main
