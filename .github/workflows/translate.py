@@ -36,7 +36,8 @@ class Translate():
     def find_prompts_in_all_files(self):
         print("Find prompts in all plugin files")
         for dir in PLUGIN_DIRS:
-            for root, dirs, files in (self._plugin_root/dir).walk():
+            plugin_dir = self._plugin_root/dir
+            for root, dirs, files in plugin_dir.walk():
                 for dirname in dirs:
                     if root.name == "core" and dirname == 'i18n':
                         dirs.remove(dirname)
