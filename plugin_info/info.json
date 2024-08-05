@@ -22,7 +22,9 @@
 	},
 	"language": [
 		"fr_FR",
-		"en_US"
+		"en_US",
+		"de_DE",
+		"es_ES"
 	],
 	"compatibility": [
 		"smart",
