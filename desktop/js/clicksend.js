@@ -63,7 +63,7 @@ function addCmdToTable(_cmd) {
   } else if (_cmd.logicalId == 'sendSms') {
     tr += '<td><input class="form-control input-sm" readonly value="SMS"></td><td></td>';
   } else if (_cmd.logicalId == 'sendVoice') {
-    tr += '<td><input class="form-control input-sm" readonly value="Appel (TTS)"></td><td></td>';
+    tr += '<td><input class="form-control input-sm" readonly value="{{Appel (TTS)}}"></td><td></td>';
   } else {
     tr += '<td></td><td></td>';
   }
