@@ -4,10 +4,6 @@ name: translate
 on:
   workflow_dispatch:
 
-  push:
-    branches:
-      - beta
-
 jobs:
   translate:
     uses: Mips2648/jeedom-translations/translate_workflow.yml@main
