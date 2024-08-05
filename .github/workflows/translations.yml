@@ -16,20 +16,4 @@ jobs:
   translate:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Run script
-        run: |
-          python --version
-          python .github/workflows/translate.py
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
-        with:
-          branch: "update-translations"
-          delete-branch: true
-          add-paths: core/i18n/*.json
+      - uses: Mips2648/jeedom-translations/.github/workflows/translations.yml@main
