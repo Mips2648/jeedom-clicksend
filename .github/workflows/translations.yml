@@ -7,10 +7,7 @@ on:
   push:
     branches:
       - beta
-  pull_request:
-    branches:
-      - beta
 
 jobs:
   translate:
-    uses: Mips2648/jeedom-translations/.github/workflows/translations.yml@main
+    uses: Mips2648/jeedom-translations/translate_workflow.yml@main
