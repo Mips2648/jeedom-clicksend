@@ -1,137 +1,152 @@
-import datetime
 import json
 import os
-from fichierSource import FichierSource
-from texte import Texte
+from pathlib import Path
 
-# github_workspace = os.environ.get("GITHUB_WORKSPACE")
+from source_file import SourceFile
+from prompt import Prompt
+from consts import LANGUAGES, PLUGIN_DIRS, PLUGIN_INFO_JSON
 
-def get_all():
-    base_dir = os.environ.get("GITHUB_WORKSPACE")
-    for dir in ['core', 'desktop', 'plugin_info']:
-        get_textes_from_source(f"{base_dir}/{dir}")
+class Translate():
 
-def get_textes_from_source(dir):
-    print("Recherche de textes dans le code...")
-    for root, dirs, files in os.walk(dir):
-        print(root)
-        for dirname in dirs:
-            print(dirname)
-            if dirname[0] == ".":
-                dirs.remove(dirname)
-            if (root.endswith("/core") and dirname == 'i18n'):
-                dirs.remove(dirname)
-            # for d in excludes:
-            #     if fnmatch.fnmatch(dirname, d):
-            #         dirs.remove(dirname)
+    def __init__(self) -> None:
+        self._plugin_root = Translate.__get_gh_workspace()
+        self._plugin_id: str
+        self._plugin_name: str
 
-        for fileName in files:
-            # for f in excludes:
-            #     if fnmatch.fnmatch(fileName, f):
-            #         continue
-            if fileName[-4:] == ".php" or fileName[-3:] == ".js":
-            #   or fileName[-5:] == ".json"
-            #   or fileName[-5:] == ".html"):
-                absolute_path = f"{root}/{fileName}"
-                print(f"    {absolute_path}...")
-                fichier = FichierSource(f"{absolute_path}")
-                fichier.search_textes()
-    return
+        self._files: dict[str, SourceFile] = {}
+        self._all_translations: dict[str, Prompt] = {}
 
-def plugin_absolute_path():
-    return os.environ.get("GITHUB_WORKSPACE")
+        self.__read_info_json()
 
-def get_textes_from_precedent():
-    print("Lecture des traductions existantes...")
-    ok = True
-    langues = ['en_US']
-    for langue in langues:
-        # Verbose ("    Langue: " + langue + "...")
-        content = None
-        file_path = plugin_absolute_path() + "/core/i18n/" + langue + ".json"
-        if (not os.path.exists (file_path)):
-            return
-        try:
-            with open(plugin_absolute_path() + "/core/i18n/" + langue + ".json") as f:
-                content = f.read()
-        except OSError as e:
-            print(e.filename + ": " + e.strerror)
-            ok = False
-            continue
+    def start(self):
+        # self.get_previous_translations()
+        # self.find_prompts_in_all_files()
 
-        if content != None:
+        # self.write_translations()
+
+    def __read_info_json(self):
+        info_json = self._plugin_root/PLUGIN_INFO_JSON
+        if not info_json.is_file():
+            raise RuntimeError("Missing info.json file")
+
+        data = json.loads(info_json.read_text(encoding="UTF-8"))
+        self._plugin_id = data['id']
+        self._plugin_name = data['name']
+
+    def find_prompts_in_all_files(self):
+        print("Find prompts in all plugin files")
+        for dir in PLUGIN_DIRS:
+            for root, dirs, files in (self._plugin_root/dir).walk():
+                for dirname in dirs:
+                    if root.name == "core" and dirname == 'i18n':
+                        dirs.remove(dirname)
+                    # for d in excludes:
+                    #     if fnmatch.fnmatch(dirname, d):
+                    #         dirs.remove(dirname)
+
+                for fileName in files:
+                    # for f in excludes:
+                    #     if fnmatch.fnmatch(fileName, f):
+                    #         continue
+                    if fileName[-4:] == ".php" or fileName[-3:] == ".js":
+                    #   or fileName[-5:] == ".json"
+                    #   or fileName[-5:] == ".html"):
+                        absolute_file_path = root/fileName
+                        jeedom_file_path = absolute_file_path.relative_to(self._plugin_root)
+                        jeedom_file_path = (f"plugins/{self._plugin_id}"/jeedom_file_path).as_posix()
+                        print(f"    {jeedom_file_path}...")
+                        self._files[jeedom_file_path] = SourceFile(absolute_file_path)
+                        self._files[jeedom_file_path].search_prompts(self._all_translations)
+
+    @staticmethod
+    def __get_gh_workspace() -> Path:
+        cwd= Path.cwd()
+        print("cwd is " + cwd.as_posix())
+        gh_workspace = os.environ.get("GITHUB_WORKSPACE", '')
+        if gh_workspace == '':
+            return Path(__file__).parent.parent.parent
+            # raise ValueError("Missing environment variable GITHUB_WORKSPACE")
+        return Path(gh_workspace)
+
+    def get_previous_translations(self):
+        print("Read existing translations file...")
+        for language in LANGUAGES:
+            language_file = self.get_language_file(language)
+            if not language_file.exists():
+                continue
             try:
-                data = json.loads(content)
+                data = json.loads(language_file.read_text(encoding="UTF-8"))
+            except OSError as e:
+                print(e.filename + ": " + e.strerror)
+                return False
             except json.decoder.JSONDecodeError as e:
-                print(f"Erreur lors de la lecture du fichier {file_path}:")
+                print(f"Erreur lors de la lecture du fichier {language_file}:")
                 print(f"   Ligne {e.lineno}")
                 print(f"   position {e.colno}")
                 print(f"   {e.msg}")
                 print()
-                ok = False
-                continue
+                return False
 
-            pre_1_1 = False
-            if not 'traduitjdm' in data.keys():
-                pre_1_1 = True
-            for relativ_path in data:
-                if (relativ_path == 'traduitjdm'):
-                    continue
-                else:
-                    relativ_path = relativ_path.replace("\/","/")
-                    fs = FichierSource.by_path(relativ_path)
-                    for texte in data[relativ_path]:
-                        if pre_1_1 and data[relativ_path][texte] == texte:
-                            data[relativ_path][texte] = '__AT__' + texte
-                        if not data[relativ_path][texte].startswith('__AT__'):
-                            fs.add_texte_precedent(texte, data[relativ_path][texte], langue)
-                        txt = Texte.by_texte(texte)
-                        # if purge and not txt in fs.get_textes():
-                        #     continue
-                        if not data[relativ_path][texte].startswith('__AT__'):
-                            txt.add_traduction(langue, data[relativ_path][texte], "precedent")
-                        fs.add_texte(txt)
-    return ok
+            for path in data:
+                # jeedom_path = Path(path)
+                # path = path.replace("\/","/")
 
-def write_traduction( textes ="" ):
-    print("Ecriture du/des fichier(s) de traduction(s)...")
-    langues = ['en_Us']
-    for langue in langues:
-        print(f"    Langue: {langue}...")
+                # path_posix = jeedom_path.as_posix()
+                # if path_posix not in self._files:
+                #     continue #old file entry in translation file
+                # fs = self._files[jeedom_path.as_posix()]
+                for text in data[path]:
+                    self.add_translation(language, text, data[path][text])
+                        # fs.add_texte_precedent(text, data[path][text], language)
+                    # txt = Texte.by_texte(text)
+                    # if purge and not txt in fs.get_textes():
+                    #     continue
+                    # if not data[path][texte].startswith('__AT__'):
+                    # txt.add_traduction(language, data[path][text], "precedent")
+                    # fs.add_texte(txt)
+        return True
 
-        fileName = os.environ.get("GITHUB_WORKSPACE") + "/core/i18n"
-        if (not os.path.exists (fileName)):
-                os.mkdir(fileName)
-        fileName = fileName + "/" + langue + ".json"
+    def add_translation(self, language, text, translation):
+        if translation == text:
+            # not an actual translation, do not keep it
+            return
 
-        # if backup:
-        #     Verbose ("        Rotation des fichiers existants...")
-        #     if os.path.exists (fileName + ".bck.5"):
-        #         os.unlink(fileName + ".bck.5")
+        if text not in self._all_translations:
+            # new text, save it with current translation
+            new_prompt = Prompt(text)
+            new_prompt.setTranslation(language, translation)
+            self._all_translations[text] = new_prompt
+        else:
+            existing_translation = self._all_translations[text].getTranslation(language)
+            if existing_translation == text :
+                # not actual translation yet, save it; could not happen in theory
+                self._all_translations[text].setTranslation(translation)
+            elif existing_translation != translation:
+                print(f"2 differents translations in previous files for '{text}': '{existing_translation}' <> '{translation}'")
+            else:
+                pass #all fine, we found twice the same text and same translation
 
-        #     for i in [4,3,2,1]:
-        #         if os.path.exists (fileName + ".bck." + str(i)):
-        #             os.rename (fileName + ".bck." + str(i), fileName + ".bck." + str(i+1))
+    def get_language_file(self, language: str):
+        return self._plugin_root/f"core/i18n/{language}.json"
 
-        #     if os.path.exists (fileName + ".bck"):
-        #         os.rename (fileName + ".bck" , fileName + ".bck.1")
+    def write_translations(self, textes ="" ):
+        print("Ecriture du/des fichier(s) de traduction(s)...")
+        for language in LANGUAGES:
+            print(f"    Language: {language}...")
 
-        #     if os.path.exists (fileName):
-        #         os.rename (fileName, fileName + ".bck")
+            translation_path = self._plugin_root/"core/i18n"
+            if not translation_path.exists():
+                translation_path.mkdir(parents=True, exist_ok=True)
 
-        result = dict()
-        for fs in FichierSource.fichiers_source():
-            trad = fs.get_traduction(langue)
-            if trad != None:
-                result["plugins/clicksend/" + fs.get_relativ_path()] = trad
-        result['traduitjdm']={}
-        result['traduitjdm']['version']='1'
-        result['traduitjdm']['timestamp']=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            translation_file = translation_path/f"{language}.json"
 
-        print(json.dumps(result, ensure_ascii=False, sort_keys = True, indent= 4).replace("/","\/"))
-        # with open(fileName, "w") as f:
-        #     f.write(json.dumps(result, ensure_ascii=False, sort_keys = True, indent= 4).replace("/","\/"))
+            result = {}
+            for path, file in self._files.items():
+                result[path] = file.get_prompts_and_translation(language)
 
-get_all()
-get_textes_from_precedent()
-write_traduction()
+            print(f"Will dump {translation_file.as_posix()}")
+            translation_file.write_text(json.dumps(result, ensure_ascii=False, sort_keys = True, indent= 4).replace("/","\/"))
+
+
+if __name__ == "__main__":
+    Translate().start()
