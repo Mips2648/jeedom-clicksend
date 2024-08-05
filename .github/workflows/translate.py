@@ -9,7 +9,7 @@ from consts import LANGUAGES, PLUGIN_DIRS, PLUGIN_INFO_JSON
 class Translate():
 
     def __init__(self) -> None:
-        self._plugin_root = Translate.__get_gh_workspace()
+        self._plugin_root = Path.cwd()
         self._plugin_id: str
         self._plugin_name: str
 
@@ -20,9 +20,9 @@ class Translate():
 
     def start(self):
         self.get_previous_translations()
-        # self.find_prompts_in_all_files()
+        self.find_prompts_in_all_files()
 
-        # self.write_translations()
+        self.write_translations()
 
     def __read_info_json(self):
         info_json = self._plugin_root/PLUGIN_INFO_JSON
@@ -145,8 +145,7 @@ class Translate():
                 result[path] = file.get_prompts_and_translation(language)
 
             print(f"Will dump {translation_file.as_posix()}")
-            translation_file.write_text(json.dumps(result, ensure_ascii=False, sort_keys = True, indent= 4).replace("/","\/"))
-
+            translation_file.write_text(json.dumps(result, ensure_ascii=False, sort_keys = True, indent= 4).replace("/","\/"), encoding="UTF-8")
 
 if __name__ == "__main__":
     Translate().start()

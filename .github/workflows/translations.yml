@@ -20,6 +20,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run script
-        env:
-          GITHUB_WORKSPACE: $GITHUB_WORKSPACE
         run: python .github/workflows/translate.py
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: "update-translations"
+          delete-branch: true
+          add-paths: core/i18n/*.json
