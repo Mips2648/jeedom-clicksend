@@ -3,7 +3,9 @@
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
         "Aucune méthode correspondante à": "Aucune méthode correspondante à"
     },
-    "plugins\/clicksend\/core\/class\/clicksend.class.php": {},
+    "plugins\/clicksend\/core\/class\/clicksend.class.php": {
+        "username or apikey missing": "username or apikey missing"
+    },
     "plugins\/clicksend\/desktop\/js\/clicksend.js": {
         "Afficher": "Anzeige",
         "Appel (TTS)": "Appel (TTS)",
