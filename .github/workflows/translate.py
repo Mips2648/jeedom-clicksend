@@ -19,7 +19,7 @@ class Translate():
         self.__read_info_json()
 
     def start(self):
-        # self.get_previous_translations()
+        self.get_previous_translations()
         # self.find_prompts_in_all_files()
 
         # self.write_translations()
