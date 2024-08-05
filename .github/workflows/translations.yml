@@ -14,6 +14,4 @@ on:
 
 jobs:
   translate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: Mips2648/jeedom-translations/.github/workflows/translations.yml@main
+    uses: Mips2648/jeedom-translations/.github/workflows/translations.yml@main
