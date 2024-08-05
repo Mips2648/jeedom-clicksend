@@ -5,7 +5,7 @@
     },
     "plugins\/clicksend\/core\/class\/clicksend.class.php": {},
     "plugins\/clicksend\/desktop\/js\/clicksend.js": {
-        "Afficher": "Display",
+        "Afficher": "Afficher",
         "Appel (TTS)": "Appel (TTS)",
         "Choisir une icône": "Choisir une icône",
         "Historiser": "Historiser",
