@@ -6,4 +6,4 @@ on:
 
 jobs:
   translate:
-    uses: Mips2648/jeedom-translations/translate_workflow.yml@main
+    uses: Mips2648/jeedom-translations/.github/workflows/translate_plugin.yml@main
