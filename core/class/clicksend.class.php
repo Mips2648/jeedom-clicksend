@@ -159,4 +159,6 @@ class clicksendCmd extends cmd {
         }
     }
   }
+
+  /*     * **********************Getteur Setteur*************************** */
 }
