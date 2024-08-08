@@ -11,4 +11,4 @@ jobs:
   auto-translate:
     runs-on: ubuntu-latest
     steps:
-      - uses: Mips2648/jeedom-translations@v0.3
+      - uses: Mips2648/jeedom-translations@v0.4
