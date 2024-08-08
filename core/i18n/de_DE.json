@@ -1,22 +1,17 @@
 {
     "plugins\/clicksend\/core\/ajax\/clicksend.ajax.php": {
-        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
-        "Aucune méthode correspondante à": "Aucune méthode correspondante à"
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff"
     },
-    "plugins\/clicksend\/core\/class\/clicksend.class.php": {
-        "username or apikey missing": "username or apikey missing"
+    "plugins\/clicksend\/core\/class\/clicksend.class.php": {},
+    "plugins\/clicksend\/core\/config\/commands.json": {
+        "Rafraichir": "Auffrischen"
     },
     "plugins\/clicksend\/desktop\/js\/clicksend.js": {
         "Afficher": "Anzeige",
-        "Appel (TTS)": "Appel (TTS)",
         "Choisir une icône": "Wählen Sie ein Symbol",
         "Historiser": "Chronik",
         "Inverser": "Umgekehrt",
-        "Max": "Max",
         "Min": "Minimum",
-        "Nom de la commande": "Nom de la commande",
-        "SMS": "SMS",
-        "Supprimer la commande": "Supprimer la commande",
         "Tester": "Prüfung",
         "Unité": "Unit"
     },
@@ -27,7 +22,6 @@
         "Ajouter": "Addieren",
         "Ajouter une commande": "Kommando einfügen",
         "Aucun": "Nein",
-        "Aucun équipement trouvé, cliquez sur \"Ajouter\" pour commencer": "Aucun équipement trouvé, cliquez sur \"Ajouter\" pour commencer",
         "Catégorie": "Kategorie",
         "Clé API": "API Schlüssel",
         "Commandes": "Befehle",
@@ -37,22 +31,14 @@
         "Documentation": "Dokumentation",
         "Dupliquer": "Duplikat",
         "Equipement": "Gerät",
-        "Equipement non visible": "Equipement non visible",
-        "Equipement visible": "Equipement visible",
         "Etat": "Zustand",
         "Gestion": "Management",
         "Informations": "Information",
-        "Mes ClickSends": "Mes ClickSends",
         "Nom": "Name",
         "Nom d'utilisateur": "Benutzername",
-        "Nom de l'équipement": "Nom de l'équipement",
-        "Numéro": "Numéro",
         "Objet parent": "Übergeordnetes Objekt",
         "Options": "Optionen",
-        "Paramètres généraux": "Paramètres généraux",
-        "Paramètres spécifiques": "Paramètres spécifiques",
         "Rechercher": "Suchen nach",
-        "Saisir le nom d'utilisateur": "Saisir le nom d'utilisateur",
         "Sauvegarder": "Zu schützen",
         "Supprimer": "Entfernen",
         "Type": "Typ",
