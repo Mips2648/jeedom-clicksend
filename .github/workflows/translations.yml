@@ -9,4 +9,6 @@ on:
 
 jobs:
   auto-translate:
-    uses: Mips2648/jeedom-translations/.github/workflows/translate_plugin.yml@main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Mips2648/jeedom-translations@v0.2
