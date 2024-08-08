@@ -1,42 +1,68 @@
 {
     "plugins\/clicksend\/core\/ajax\/clicksend.ajax.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized access"
+        "401 - Accès non autorisé": "401 - Unauthorized access",
+        "Aucune méthode correspondante à": "No method corresponding to"
     },
-    "plugins\/clicksend\/core\/class\/clicksend.class.php": {},
+    "plugins\/clicksend\/core\/class\/clicksend.class.php": {
+        "username or apikey missing": "username or apikey missing"
+    },
     "plugins\/clicksend\/core\/config\/commands.json": {
-        "Rafraichir": "Refresh"
+        "Envoyer un SMS": "Send an SMS",
+        "Envoyer un message vocal": "Send a voice message",
+        "Rafraichir": "Refresh",
+        "Solde": "Balance"
     },
     "plugins\/clicksend\/desktop\/js\/clicksend.js": {
         "Afficher": "Display",
+        "Appel (TTS)": "Calling (TTS)",
         "Choisir une icône": "Choose an icon",
         "Historiser": "Historize",
         "Inverser": "Invert",
         "Max": "Maximum",
         "Min": "Minimum",
+        "Nom de la commande": "Order name",
+        "SMS": "SMS",
+        "Supprimer la commande": "Delete command",
         "Tester": "Test",
         "Unité": "Unit"
     },
     "plugins\/clicksend\/desktop\/php\/clicksend.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
+        "Actions": "Actions",
         "Activer": "Enable",
         "Ajouter": "Add",
         "Ajouter une commande": "Add a command",
         "Aucun": "None",
+        "Aucun équipement trouvé, cliquez sur \"Ajouter\" pour commencer": "No equipment found, click on \"Add\" to start",
         "Catégorie": "Category",
         "Clé API": "API key",
         "Commandes": "Commands",
+        "Configuration": "Configuration",
         "Configuration avancée": "Advanced configuration",
+        "Description": "Description",
+        "Documentation": "Documentation",
         "Dupliquer": "Duplicate",
         "Equipement": "Equipment",
+        "Equipement non visible": "Equipment not visible",
+        "Equipement visible": "Visible equipment",
         "Etat": "State",
         "Gestion": "Management",
         "Informations": "Information",
+        "Mes ClickSends": "My ClickSends",
         "Nom": "Name",
         "Nom d'utilisateur": "Username",
+        "Nom de l'équipement": "Equipment name",
+        "Numéro": "Number",
         "Objet parent": "Parent object",
+        "Options": "Options",
+        "Paramètres généraux": "General parameters",
+        "Paramètres spécifiques": "Specific parameters",
         "Rechercher": "Search",
+        "Saisir le nom d'utilisateur": "Enter user name",
         "Sauvegarder": "Save",
-        "Supprimer": "Delete"
+        "Supprimer": "Delete",
+        "Type": "Type",
+        "Visible": "Visible"
     },
     "plugins\/clicksend\/plugin_info\/configuration.php": {},
     "plugins\/clicksend\/plugin_info\/install.php": {}
