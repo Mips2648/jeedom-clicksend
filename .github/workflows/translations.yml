@@ -11,4 +11,6 @@ jobs:
   auto-translate:
     runs-on: ubuntu-latest
     steps:
-      - uses: jeedomThirdPartyDevs/plugins-translations@v0.9
+      - uses: jeedomThirdPartyDevs/plugins-translations@v0.10
+        with:
+          token: ${{ secrets.TRANSLATION_TOKEN }}
