@@ -1,9 +1,0 @@
-{
-    "plugins\/clicksend\/core\/ajax\/clicksend.ajax.php": {},
-    "plugins\/clicksend\/core\/class\/clicksend.class.php": {},
-    "plugins\/clicksend\/core\/config\/commands.json": {},
-    "plugins\/clicksend\/desktop\/js\/clicksend.js": {},
-    "plugins\/clicksend\/desktop\/php\/clicksend.php": {},
-    "plugins\/clicksend\/plugin_info\/configuration.php": {},
-    "plugins\/clicksend\/plugin_info\/install.php": {}
-}
