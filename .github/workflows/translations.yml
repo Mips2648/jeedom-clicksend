@@ -14,4 +14,3 @@ jobs:
       - uses: Mips2648/plugins-translations@main
         with:
           deepl_api_key: ${{ secrets.DEEPL_API_KEY }}
-          debug: true
