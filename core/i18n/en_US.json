@@ -63,7 +63,5 @@
         "Supprimer": "Delete",
         "Type": "Type",
         "Visible": "Visible"
-    },
-    "plugins\/clicksend\/plugin_info\/configuration.php": {},
-    "plugins\/clicksend\/plugin_info\/install.php": {}
+    }
 }
