@@ -1,6 +1,6 @@
 {
     "require": {
         "mips/httpclient": "^1.0",
-        "mips/jeedom-tools": "~0.18"
+        "mips/jeedom-tools": "~1.0"
     }
 }
