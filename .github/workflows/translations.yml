@@ -14,4 +14,4 @@ jobs:
       - uses: Mips2648/plugins-translations@main
         with:
           deepl_api_key: ${{ secrets.DEEPL_API_KEY }}
-          target_languages: "en_US,de_DE,es_ES,it_IT,pt_PT"
+          target_languages: "en_US,de_DE,es_ES,it_IT"
