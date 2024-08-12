@@ -20,12 +20,6 @@
 		"forum": "https://community.jeedom.com/tag/plugin-clicksend",
 		"video": ""
 	},
-	"languages": [
-		"de_DE",
-		"en_US",
-		"es_ES",
-		"fr_FR"
-	],
 	"compatibility": [
 		"smart",
 		"atlas",
