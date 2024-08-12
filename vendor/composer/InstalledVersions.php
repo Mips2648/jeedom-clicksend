@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'db6cf64bcf192f8c27a8ba3151b5d02881b1f921',
+    'reference' => '8cd470f316f6501148242425ffbbbbfe52cd3b61',
     'name' => '__root__',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'db6cf64bcf192f8c27a8ba3151b5d02881b1f921',
+      'reference' => '8cd470f316f6501148242425ffbbbbfe52cd3b61',
     ),
     'mips/httpclient' => 
     array (

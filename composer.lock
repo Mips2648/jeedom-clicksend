@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "260085237ffc16373999960ec9dd4c79",
+    "content-hash": "e876aec1f78874204c65c23776468cf0",
     "packages": [
         {
             "name": "mips/httpclient",
@@ -140,5 +140,8 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
+    "platform-overrides": {
+        "php": "7.4"
+    },
     "plugin-api-version": "2.0.0"
 }
