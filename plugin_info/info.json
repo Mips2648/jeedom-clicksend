@@ -34,5 +34,12 @@
 		"docker",
 		"diy",
 		"v4"
+	],
+	"language": [
+		"de_DE",
+		"en_US",
+		"es_ES",
+		"fr_FR",
+		"it_IT"
 	]
 }
