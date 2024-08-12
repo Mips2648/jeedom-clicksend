@@ -1,0 +1,67 @@
+{
+    "plugins\/clicksend\/core\/ajax\/clicksend.ajax.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Aucune méthode correspondante à": "Nenhum método correspondente a"
+    },
+    "plugins\/clicksend\/core\/class\/clicksend.class.php": {
+        "username or apikey missing": "nome de utilizador ou apikey em falta"
+    },
+    "plugins\/clicksend\/core\/config\/commands.json": {
+        "Envoyer un SMS": "Enviar um SMS",
+        "Envoyer un message vocal": "Enviar uma mensagem de voz",
+        "Rafraichir": "Recarregar",
+        "Solde": "Balanço"
+    },
+    "plugins\/clicksend\/desktop\/js\/clicksend.js": {
+        "Afficher": "Mostrar",
+        "Appel (TTS)": "Chamadas (TTS)",
+        "Choisir une icône": "Escolha um ícone",
+        "Historiser": "Histórico",
+        "Inverser": "Inverter",
+        "Max": "Máx.",
+        "Min": "Mínimo",
+        "Nom de la commande": "Nome do comando",
+        "SMS": "SMS",
+        "Supprimer la commande": "Apagar comando",
+        "Tester": "Testar",
+        "Unité": "Unidade"
+    },
+    "plugins\/clicksend\/desktop\/php\/clicksend.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Actions": "Ações",
+        "Activer": "Ativar",
+        "Ajouter": "Adicionar",
+        "Ajouter une commande": "Adicionar comando",
+        "Aucun": "Nenhum",
+        "Aucun équipement trouvé, cliquez sur \"Ajouter\" pour commencer": "Nenhum equipamento encontrado, clique em \"Adicionar\" para iniciar",
+        "Catégorie": "Categoria",
+        "Clé API": "Chave API",
+        "Commandes": "Comandos",
+        "Configuration": "Configuração",
+        "Configuration avancée": "Configuração avançada",
+        "Description": "Descrição",
+        "Documentation": "Documentação",
+        "Dupliquer": "Duplicar",
+        "Equipement": "Equipamento",
+        "Equipement non visible": "Equipamento não visível",
+        "Equipement visible": "Equipamentos visíveis",
+        "Etat": "Estado",
+        "Gestion": "Gestão",
+        "Informations": "Informação",
+        "Mes ClickSends": "Os meus ClickSends",
+        "Nom": "Nome",
+        "Nom d'utilisateur": "Nome do Utilizador",
+        "Nom de l'équipement": "Nome do equipamento",
+        "Numéro": "Número",
+        "Objet parent": "Objeto pai",
+        "Options": "Opções",
+        "Paramètres généraux": "Parâmetros gerais",
+        "Paramètres spécifiques": "Parâmetros específicos",
+        "Rechercher": "Pesquisar",
+        "Saisir le nom d'utilisateur": "Introduzir o nome de utilizador",
+        "Sauvegarder": "Guardar",
+        "Supprimer": "Eliminar",
+        "Type": "Tipo",
+        "Visible": "Visível"
+    }
+}
