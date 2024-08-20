@@ -30,7 +30,6 @@
         "401 - Accès non autorisé": "401 - Accesso non autorizzato",
         "Actions": "Stock",
         "Activer": "Attivare",
-        "Ajouter": "Ajouter",
         "Ajouter une commande": "Aggiungi un comando",
         "Aucun": "Nessuno",
         "Aucun équipement trouvé, cliquez sur \"Ajouter\" pour commencer": "Nessuna apparecchiatura trovata, fare clic su \"Aggiungi\" per iniziare",
@@ -59,8 +58,6 @@
         "Paramètres spécifiques": "Parametri specifici",
         "Rechercher": "Ricercare",
         "Saisir le nom d'utilisateur": "Inserire il nome utente",
-        "Sauvegarder": "Sauvegarder",
-        "Supprimer": "Supprimer",
         "Type": "Tipo",
         "Visible": "Visibile"
     }
