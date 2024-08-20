@@ -2,7 +2,12 @@
 	"id": "clicksend",
 	"name": "ClickSend",
 	"description": {
-		"fr_FR": "Plugin pour intégrer la plateforme ClickSend qui permet l'envoi de message texte (SMS) ou vocaux (TTS)"
+		"fr_FR": "Plugin pour intégrer la plateforme ClickSend qui permet l'envoi de message texte (SMS) ou vocaux (TTS)",
+		"en_US": "Plugin to integrate the ClickSend platform for sending text (SMS) or voice (TTS) messages",
+		"es_ES": "Plugin para integrar la plataforma ClickSend para el envío de mensajes de texto (SMS) o de voz (TTS)",
+		"de_DE": "Plugin zur Integration der ClickSend-Plattform, die das Versenden von Textnachrichten (SMS) oder Sprachnachrichten (TTS) ermöglicht",
+		"it_IT": "Plugin per integrare la piattaforma ClickSend per l'invio di messaggi di testo (SMS) o vocali (TTS)",
+		"pt_PT": "Plugin para integrar a plataforma ClickSend para o envio de mensagens de texto (SMS) ou de voz (TTS)"
 	},
 	"utilization": "Vous devez créer un compte ClickSend, le créditer et généré votre clé API",
 	"licence": "AGPL",
@@ -20,10 +25,6 @@
 		"forum": "https://community.jeedom.com/tag/plugin-clicksend",
 		"video": ""
 	},
-	"language": [
-		"fr_FR",
-		"en_US"
-	],
 	"compatibility": [
 		"smart",
 		"atlas",
@@ -32,5 +33,13 @@
 		"docker",
 		"diy",
 		"v4"
+	],
+	"language": [
+		"de_DE",
+		"en_US",
+		"es_ES",
+		"fr_FR",
+		"it_IT",
+		"pt_PT"
 	]
 }

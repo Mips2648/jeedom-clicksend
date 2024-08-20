@@ -1,0 +1,67 @@
+{
+    "plugins\/clicksend\/core\/ajax\/clicksend.ajax.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
+        "Aucune méthode correspondante à": "Keine entsprechende Methode zu"
+    },
+    "plugins\/clicksend\/core\/class\/clicksend.class.php": {
+        "username or apikey missing": "username oder apikey fehlen"
+    },
+    "plugins\/clicksend\/core\/config\/commands.json": {
+        "Envoyer un SMS": "Eine SMS senden",
+        "Envoyer un message vocal": "Eine Sprachnachricht senden",
+        "Rafraichir": "Auffrischen",
+        "Solde": "Saldo"
+    },
+    "plugins\/clicksend\/desktop\/js\/clicksend.js": {
+        "Afficher": "Anzeige",
+        "Appel (TTS)": "Anruf (TTS)",
+        "Choisir une icône": "Wählen Sie ein Symbol",
+        "Historiser": "Chronik",
+        "Inverser": "Umgekehrt",
+        "Max": "Max",
+        "Min": "Minimum",
+        "Nom de la commande": "Name der Bestellung",
+        "SMS": "SMS",
+        "Supprimer la commande": "Bestellung löschen",
+        "Tester": "Prüfung",
+        "Unité": "Unit"
+    },
+    "plugins\/clicksend\/desktop\/php\/clicksend.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
+        "Actions": "Lager",
+        "Activer": "Aktivieren",
+        "Ajouter": "Addieren",
+        "Ajouter une commande": "Kommando einfügen",
+        "Aucun": "Nein",
+        "Aucun équipement trouvé, cliquez sur \"Ajouter\" pour commencer": "Keine Ausrüstung gefunden, klicken Sie auf \"Hinzufügen\", um zu beginnen",
+        "Catégorie": "Kategorie",
+        "Clé API": "API Schlüssel",
+        "Commandes": "Befehle",
+        "Configuration": "Konfiguration",
+        "Configuration avancée": "Erweiterte Konfiguration",
+        "Description": "Beschreibung",
+        "Documentation": "Dokumentation",
+        "Dupliquer": "Duplikat",
+        "Equipement": "Gerät",
+        "Equipement non visible": "Ausrüstung nicht sichtbar",
+        "Equipement visible": "Sichtbare Ausstattung",
+        "Etat": "Zustand",
+        "Gestion": "Management",
+        "Informations": "Information",
+        "Mes ClickSends": "Meine ClickSends",
+        "Nom": "Name",
+        "Nom d'utilisateur": "Benutzername",
+        "Nom de l'équipement": "Name der Ausrüstung",
+        "Numéro": "Nummer",
+        "Objet parent": "Übergeordnetes Objekt",
+        "Options": "Optionen",
+        "Paramètres généraux": "Allgemeine Einstellungen",
+        "Paramètres spécifiques": "Spezifische Einstellungen",
+        "Rechercher": "Suchen nach",
+        "Saisir le nom d'utilisateur": "Geben Sie den Benutzernamen ein",
+        "Sauvegarder": "Zu schützen",
+        "Supprimer": "Entfernen",
+        "Type": "Typ",
+        "Visible": "Sichtbar"
+    }
+}

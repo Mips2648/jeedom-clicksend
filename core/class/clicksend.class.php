@@ -48,7 +48,7 @@ class clicksend extends eqLogic {
     $username = trim($this->getConfiguration('username'));
     $apikey = trim($this->getConfiguration('apikey'));
     if (empty($username) || empty($apikey)) {
-      throw new Exception("username or apikey missing");
+      throw new Exception(__("username or apikey missing", __FILE__));
     }
     $auth = base64_encode("{$username}:{$apikey}");
     $client->getHttpHeaders()->setHeader('Authorization', "Basic {$auth}");
@@ -159,6 +159,4 @@ class clicksendCmd extends cmd {
         }
     }
   }
-
-  /*     * **********************Getteur Setteur*************************** */
 }

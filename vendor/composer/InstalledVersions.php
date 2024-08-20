@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '4d5ac721c58be3f8e0d4d90e64647b0d401e13bd',
+    'reference' => '8cd470f316f6501148242425ffbbbbfe52cd3b61',
     'name' => '__root__',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '4d5ac721c58be3f8e0d4d90e64647b0d401e13bd',
+      'reference' => '8cd470f316f6501148242425ffbbbbfe52cd3b61',
     ),
     'mips/httpclient' => 
     array (
@@ -54,12 +54,12 @@ private static $installed = array (
     ),
     'mips/jeedom-tools' => 
     array (
-      'pretty_version' => 'v0.24',
-      'version' => '0.24.0.0',
+      'pretty_version' => 'v1.0',
+      'version' => '1.0.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'bb5ab54a136f78cff1c396b896d0bb938516f292',
+      'reference' => '047aa5ca7831394566a6974ea7ccc882c04025c8',
     ),
     'psr/log' => 
     array (

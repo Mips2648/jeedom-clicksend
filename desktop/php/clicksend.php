@@ -88,7 +88,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<div class="col-lg-8">
 							<legend><i class="fas fa-wrench"></i> {{Paramètres généraux}}</legend>
 							<div class="form-group">
-								<label class="col-sm-4 control-label">{{Nom de l'équipement}}</label>
+								<label class="col-sm-4 control-label">{{Nom}}</label>
 								<div class="col-sm-6">
 									<input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display:none;">
 									<input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement}}">

@@ -2,7 +2,7 @@
     "common": [
         {
             "logicalId": "balance",
-            "name": "Solde",
+            "name": "{{Solde}}",
             "type": "info",
             "subtype": "numeric",
             "isVisible": 1,
@@ -11,14 +11,14 @@
         },
         {
             "logicalId": "refresh",
-            "name": "Rafraichir",
+            "name": "{{Rafraichir}}",
             "type": "action",
             "subtype": "other",
             "isVisible": 1
         },
         {
             "logicalId": "sendSms",
-            "name": "Envoyer un SMS",
+            "name": "{{Envoyer un SMS}}",
             "type": "action",
             "subtype": "message",
             "isVisible": 1,
@@ -28,7 +28,7 @@
         },
         {
             "logicalId": "sendVoice",
-            "name": "Envoyer un message vocal",
+            "name": "{{Envoyer un message vocal}}",
             "type": "action",
             "subtype": "message",
             "isVisible": 1,
