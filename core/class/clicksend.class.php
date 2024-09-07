@@ -44,7 +44,7 @@ class clicksend extends eqLogic {
 
   private function getClient() {
     $host = 'https://rest.clicksend.com/v3';
-    $client = new HttpClient($host, log::getLogger(__CLASS__));
+    $client = new HttpClient($host);
     $username = trim($this->getConfiguration('username'));
     $apikey = trim($this->getConfiguration('apikey'));
     if (empty($username) || empty($apikey)) {
