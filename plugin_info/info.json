@@ -12,7 +12,7 @@
 	"utilization": "Vous devez créer un compte ClickSend, le créditer et généré votre clé API",
 	"licence": "AGPL",
 	"author": "Mips",
-	"require": "4.2.0",
+	"require": "4.4",
 	"category": "communication",
 	"hasDependency": false,
 	"hasOwnDeamon": false,
