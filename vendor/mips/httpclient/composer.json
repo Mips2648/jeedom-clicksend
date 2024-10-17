@@ -1,0 +1,16 @@
+{
+    "name": "mips/httpclient",
+    "description": "Http Client for json API",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mips"
+        }
+    ],
+    "require": {
+        "psr/log": "~1.0"
+    },
+    "autoload": {
+        "psr-4": { "Mips\\Http\\" : "src/" }
+    }
+}
