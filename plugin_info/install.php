@@ -24,16 +24,6 @@ function InstallComposerDependencies() {
     shell_exec($cmd);
 }
 
-// Fonction exécutée automatiquement après l'installation du plugin
-function clicksend_install() {
+function clicksend_post_plugin_install() {
     InstallComposerDependencies();
-}
-
-// Fonction exécutée automatiquement après la mise à jour du plugin
-function clicksend_update() {
-    InstallComposerDependencies();
-}
-
-// Fonction exécutée automatiquement après la suppression du plugin
-function clicksend_remove() {
 }
