@@ -4,41 +4,40 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit875bc3b69fc5450bdcbf4e7e8f140065
-{
-    public static $prefixLengthsPsr4 = array (
-        'P' => 
-        array (
+class ComposerStaticInit875bc3b69fc5450bdcbf4e7e8f140065 {
+    public static $prefixLengthsPsr4 = array(
+        'P' =>
+        array(
             'Psr\\Log\\' => 8,
         ),
-        'M' => 
-        array (
+        'M' =>
+        array(
             'Mips\\Http\\' => 10,
         ),
     );
 
-    public static $prefixDirsPsr4 = array (
-        'Psr\\Log\\' => 
-        array (
+    public static $prefixDirsPsr4 = array(
+        'Psr\\Log\\' =>
+        array(
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Mips\\Http\\' => 
-        array (
+        'Mips\\Http\\' =>
+        array(
             0 => __DIR__ . '/..' . '/mips/httpclient/src',
         ),
     );
 
-    public static $prefixesPsr0 = array (
-        'M' => 
-        array (
-            'MipsEqLogicTrait' => 
-            array (
+    public static $prefixesPsr0 = array(
+        'M' =>
+        array(
+            'MipsEqLogicTrait' =>
+            array(
                 0 => __DIR__ . '/..' . '/mips/jeedom-tools/src',
             ),
         ),
     );
 
-    public static $classMap = array (
+    public static $classMap = array(
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'MipsEqLogicTrait' => __DIR__ . '/..' . '/mips/jeedom-tools/src/MipsEqLogicTrait.php',
         'Mips\\Http\\HttpClient' => __DIR__ . '/..' . '/mips/httpclient/src/HttpClient.php',
@@ -57,14 +56,12 @@ class ComposerStaticInit875bc3b69fc5450bdcbf4e7e8f140065
         'Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/TestLogger.php',
     );
 
-    public static function getInitializer(ClassLoader $loader)
-    {
+    public static function getInitializer(ClassLoader $loader) {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit875bc3b69fc5450bdcbf4e7e8f140065::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit875bc3b69fc5450bdcbf4e7e8f140065::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit875bc3b69fc5450bdcbf4e7e8f140065::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit875bc3b69fc5450bdcbf4e7e8f140065::$classMap;
-
         }, null, ClassLoader::class);
     }
 }
