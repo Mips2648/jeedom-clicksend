@@ -70,7 +70,7 @@ class clicksend extends eqLogic {
     $message = [
       "body" => $message,
       "to" =>  $to,
-      "from" => $this->getName()
+      "source" => $this->getName()
     ];
 
     $payload = [
