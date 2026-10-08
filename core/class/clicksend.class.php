@@ -134,20 +134,20 @@ class clicksendCmd extends cmd {
   }
 
   // Exécution d'une commande
-  public function execute($_options = array()) {
+  public function execute($_options = array()): bool {
     /** @var clicksend */
     $eqLogic = $this->getEqLogic();
 
     switch ($this->getLogicalId()) {
       case 'refresh':
         $eqLogic->getAccount();
-        return;
+        break;
       case 'sendSms':
         $eqLogic->sendSms($_options['title'], $_options['message']);
-        return;
+        break;
       case 'sendVoice':
         $eqLogic->sendVoice($_options['title'], $_options['message']);
-        return;
+        break;
       default:
         switch ($this->getConfiguration('type')) {
           case 'sms':
@@ -158,5 +158,6 @@ class clicksendCmd extends cmd {
             break;
         }
     }
+    return true;
   }
 }
