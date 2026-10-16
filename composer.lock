@@ -4,24 +4,29 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71850b1cab9c3a8f30bc997b1221c3d9",
+    "content-hash": "1a536437a03ce7ac5bcf2995c09b4f38",
     "packages": [
         {
             "name": "mips/httpclient",
-            "version": "v1.0",
+            "version": "v2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Mips2648/httpclient.git",
-                "reference": "fe44ea44d2411aba064c60cca041ee214e2fa737"
+                "reference": "0e33c79e0ef7aa3364c4b24dcbcf222d37c20bdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Mips2648/httpclient/zipball/fe44ea44d2411aba064c60cca041ee214e2fa737",
-                "reference": "fe44ea44d2411aba064c60cca041ee214e2fa737",
+                "url": "https://api.github.com/repos/Mips2648/httpclient/zipball/0e33c79e0ef7aa3364c4b24dcbcf222d37c20bdc",
+                "reference": "0e33c79e0ef7aa3364c4b24dcbcf222d37c20bdc",
                 "shasum": ""
             },
             "require": {
-                "psr/log": "~1.0"
+                "php": ">=8.2",
+                "psr/log": "~3.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.3",
+                "phpunit/phpunit": "^11.5"
             },
             "type": "library",
             "autoload": {
@@ -40,10 +45,9 @@
             ],
             "description": "Http Client for json API",
             "support": {
-                "issues": "https://github.com/Mips2648/httpclient/issues",
-                "source": "https://github.com/Mips2648/httpclient/tree/v1.0"
+                "source": "https://github.com/Mips2648/httpclient/tree/v2.0"
             },
-            "time": "2023-08-30T08:19:09+00:00"
+            "time": "2026-10-12T11:24:52+00:00"
         },
         {
             "name": "mips/jeedom-tools",
@@ -86,30 +90,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.4",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
-                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=8.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "Psr/Log/"
+                    "Psr\\Log\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -130,9 +134,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/1.1.4"
+                "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
-            "time": "2021-05-03T11:20:27+00:00"
+            "time": "2024-09-11T13:17:53+00:00"
         }
     ],
     "packages-dev": [],
@@ -141,10 +145,9 @@
     "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "platform-overrides": {
-        "php": "7.4"
+    "platform": {
+        "php": "^8.2"
     },
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
