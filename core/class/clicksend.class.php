@@ -26,15 +26,6 @@ class clicksend extends eqLogic {
 
   public static $_encryptConfigKey = array('apikey');
 
-
-  /*
-   * Permet d'indiquer des éléments supplémentaires à remonter dans les informations de configuration
-   * lors de la création semi-automatique d'un post sur le forum community
-   public static function getConfigForCommunity() {
-      return "les infos essentiel de mon plugin";
-   }
-   */
-
   public static function cronDaily() {
     /** @var clicksend */
     foreach (eqLogic::byType(__CLASS__, true) as $eqLogic) {
@@ -43,8 +34,7 @@ class clicksend extends eqLogic {
   }
 
   private function getClient() {
-    $host = 'https://rest.clicksend.com/v3';
-    $client = new HttpClient($host, log::getLogger(__CLASS__));
+    $client = new HttpClient('https://rest.clicksend.com/v3', log::getLogger(__CLASS__));
     $username = trim($this->getConfiguration('username'));
     $apikey = trim($this->getConfiguration('apikey'));
     if (empty($username) || empty($apikey)) {
@@ -66,7 +56,7 @@ class clicksend extends eqLogic {
     }
   }
 
-  public function sendSms($to, $message) {
+  public function sendSms(string $to, string $message): void {
     $message = [
       "body" => $message,
       "to" =>  $to,
@@ -82,7 +72,7 @@ class clicksend extends eqLogic {
     $this->getClient()->doPost('sms/send', $payload);
   }
 
-  public function sendVoice($to, $message) {
+  public function sendVoice(string $to, string $message): void {
     $message = [
       "body" => $message,
       "to" =>  $to,
@@ -134,20 +124,20 @@ class clicksendCmd extends cmd {
   }
 
   // Exécution d'une commande
-  public function execute($_options = array()) {
+  public function execute($_options = array()): bool {
     /** @var clicksend */
     $eqLogic = $this->getEqLogic();
 
     switch ($this->getLogicalId()) {
       case 'refresh':
         $eqLogic->getAccount();
-        return;
+        break;
       case 'sendSms':
         $eqLogic->sendSms($_options['title'], $_options['message']);
-        return;
+        break;
       case 'sendVoice':
         $eqLogic->sendVoice($_options['title'], $_options['message']);
-        return;
+        break;
       default:
         switch ($this->getConfiguration('type')) {
           case 'sms':
@@ -158,5 +148,6 @@ class clicksendCmd extends cmd {
             break;
         }
     }
+    return true;
   }
 }
