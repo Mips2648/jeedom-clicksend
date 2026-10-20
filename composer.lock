@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "364d3cba1476dad6b515e67c64853e66",
+    "content-hash": "6e40ef2cc4780e037f4bd270c64d40c1",
     "packages": [
         {
             "name": "mips/httpclient",
