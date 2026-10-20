@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a536437a03ce7ac5bcf2995c09b4f38",
+    "content-hash": "364d3cba1476dad6b515e67c64853e66",
     "packages": [
         {
             "name": "mips/httpclient",
-            "version": "v2.0",
+            "version": "v2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Mips2648/httpclient.git",
-                "reference": "0e33c79e0ef7aa3364c4b24dcbcf222d37c20bdc"
+                "reference": "49ab79ceb664ef92ba5fef43aec745418e4c2306"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Mips2648/httpclient/zipball/0e33c79e0ef7aa3364c4b24dcbcf222d37c20bdc",
-                "reference": "0e33c79e0ef7aa3364c4b24dcbcf222d37c20bdc",
+                "url": "https://api.github.com/repos/Mips2648/httpclient/zipball/49ab79ceb664ef92ba5fef43aec745418e4c2306",
+                "reference": "49ab79ceb664ef92ba5fef43aec745418e4c2306",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
-                "psr/log": "~3.0"
+                "psr/log": "^1.1 || ^3.0"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.3",
@@ -45,9 +45,9 @@
             ],
             "description": "Http Client for json API",
             "support": {
-                "source": "https://github.com/Mips2648/httpclient/tree/v2.0"
+                "source": "https://github.com/Mips2648/httpclient/tree/v2.1"
             },
-            "time": "2026-10-12T11:24:52+00:00"
+            "time": "2026-10-20T13:21:01+00:00"
         },
         {
             "name": "mips/jeedom-tools",
@@ -87,56 +87,6 @@
                 "source": "https://github.com/Mips2648/jeedom-tools/tree/v2.0.1"
             },
             "time": "2026-01-28T08:59:18+00:00"
-        },
-        {
-            "name": "psr/log",
-            "version": "3.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
-                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Log\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "https://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for logging libraries",
-            "homepage": "https://github.com/php-fig/log",
-            "keywords": [
-                "log",
-                "psr",
-                "psr-3"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.2"
-            },
-            "time": "2024-09-11T13:17:53+00:00"
         }
     ],
     "packages-dev": [],
